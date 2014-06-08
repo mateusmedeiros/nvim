@@ -3,19 +3,17 @@ set nocompatible
 execute pathogen#infect()
 execute pathogen#helptags()
 
-syntax on
-filetype plugin indent on
-
-"set rtp+=$HOME/.vim/bundle/powerline/powerline/bindings/vim
-
+set omnifunc=syntaxcomplete#Complete
 set clipboard=unnamedplus
 set autoindent  " Automatically set the indent of a new line (local to buffer).
 set smartindent
-set tabstop=2  " Tab size eql 4 spaces.
-set softtabstop=2
-set shiftwidth=2  " Default shift width for indents.
+set tabstop=4  " Tab size eql 4 spaces.
+set softtabstop=4
+set shiftwidth=4  " Default shift width for indents.
 set expandtab  " Replace tabs with ${tabstop} spaces.
 set smarttab
+":highlight Pmenu ctermbg=238 gui=bold
+syntax enable
 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 command B bp|sp|bn|bd
@@ -30,10 +28,21 @@ set noswapfile
 "colorscheme solarized
 
 
+set undofile                " Save undo's after file closes
+set undodir=$HOME/.vim-undo " where to save undo histories
+set undolevels=1000         " How many undos
+set undoreload=10000
+
+
 let g:airline_theme             = 'powerlineish'
 let g:airline_enable_branch     = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+
+imap <C-K> <esc>a<Plug>snipMateNextOrTrigger
+smap <C-K> <Plug>snipMateNextOrTrigger
+imap <C-J> <esc>a<Plug>snipMateBack
+smap <C-J> <Plug>snipMateBack
 
 au BufNewFile *.rb 0r ~/.vim/boilerplate/rb
 
@@ -60,10 +69,10 @@ noremap <Left> <NOP>
 noremap <Right> <NOP>
 
 
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-h> <Left>
-inoremap <C-l> <Right>
+"inoremap <C-j> <Down>
+"inoremap <C-k> <Up>
+"inoremap <C-h> <Left>
+"inoremap <C-l> <Right>
 
 noremap h <NOP>
 ""noremap j <NOP>
@@ -71,3 +80,25 @@ noremap h <NOP>
 noremap l <NOP>
 
 
+"autocmd FileType javascript set omnifunc=tern#Complete
+"set omnifunc=youcompleteme#Complete
+
+"set rtp+=$HOME/.vim/bundle/powerline/powerline/bindings/vim
+let g:ycm_path_to_python_interpreter = '/usr/bin/python2'
+"let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_autoclose_preview_window_after_insertion=1
+
+let g:SuperTabDefaultCompletionType = '<C-X><C-O>'
+
+syntax on
+filetype plugin indent on
+
+colorscheme solarized
+set background=dark
+let g:solarized_termcolors=256
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=239
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=black
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=gray   ctermbg=11
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=gray ctermbg=8

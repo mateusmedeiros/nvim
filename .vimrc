@@ -7,9 +7,9 @@ set omnifunc=syntaxcomplete#Complete
 set clipboard=unnamedplus
 set autoindent  " Automatically set the indent of a new line (local to buffer).
 set smartindent
-set tabstop=4  " Tab size eql 4 spaces.
-set softtabstop=4
-set shiftwidth=4  " Default shift width for indents.
+set tabstop=2  " Tab size eql 4 spaces.
+set softtabstop=2
+set shiftwidth=2  " Default shift width for indents.
 set expandtab  " Replace tabs with ${tabstop} spaces.
 set smarttab
 ":highlight Pmenu ctermbg=238 gui=bold

@@ -43,6 +43,7 @@ imap <C-K> <esc>a<Plug>snipMateNextOrTrigger
 smap <C-K> <Plug>snipMateNextOrTrigger
 imap <C-J> <esc>a<Plug>snipMateBack
 smap <C-J> <Plug>snipMateBack
+map <leader>r :NERDTreeFind<cr>
 
 au BufNewFile *.rb 0r ~/.vim/boilerplate/rb
 

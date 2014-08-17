@@ -3,6 +3,9 @@ This is a repository with my .vim directory. I think that the only file useful f
 ```bash
 cd ~
 git clone --recursive https://github.com/mateusmedeiros/vim-config.git .vim
+cd ~/.vim/bundle/tern_for_vim/
+npm install
+cd ~
 ln -s .vim/.vimrc .vimrc
 ```
 

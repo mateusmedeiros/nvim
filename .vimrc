@@ -39,10 +39,10 @@ let g:airline_enable_branch     = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
-imap <C-K> <esc>a<Plug>snipMateNextOrTrigger
-smap <C-K> <Plug>snipMateNextOrTrigger
-imap <C-J> <esc>a<Plug>snipMateBack
-smap <C-J> <Plug>snipMateBack
+"imap <C-K> <esc>a<Plug>snipMateNextOrTrigger
+"smap <C-K> <Plug>snipMateNextOrTrigger
+"imap <C-J> <esc>a<Plug>snipMateBack
+"smap <C-J> <Plug>snipMateBack
 map <leader>r :NERDTreeFind<cr>
 
 au BufNewFile *.rb 0r ~/.vim/boilerplate/rb
@@ -53,10 +53,10 @@ let NERDTreeShowHidden=1
 let NERDTreeChDirMode=2
 
 nnoremap <F5> :GundoToggle<CR>
-nnoremap <Space> i_<Esc>r
+"nnoremap <Space> i_<Esc>r
 nnoremap <C-@> a_<Esc>r
-nnoremap <S-Tab> :bp<CR>
-nnoremap <Tab> :bn<CR>
+nnoremap <C-S-"> :bp<CR>
+nnoremap " :bn<CR>
 
 if has("gui_running")
   nnoremap p a<C-S-V><Esc>
@@ -89,8 +89,23 @@ let g:ycm_path_to_python_interpreter = '/usr/bin/python2'
 "let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_autoclose_preview_window_after_insertion=1
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
 
-let g:SuperTabDefaultCompletionType = '<C-X><C-O>'
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>""
+
+
+"let g:SuperTabDefaultCompletionType = '<C-X><C-O>'
+
+"let g:UltiSnipsExpandTrigger="<tab>"
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
 
 syntax on
 filetype plugin indent on
@@ -98,8 +113,10 @@ filetype plugin indent on
 colorscheme solarized
 set background=dark
 let g:solarized_termcolors=256
-let g:indent_guides_auto_colors = 0
+let g:indent_guides_auto_colors=0
+let g:solarized_termtrans=1
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=239
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=black
 "autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=gray   ctermbg=11
 "autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=gray ctermbg=8
+"hi Normal guibg=NONE ctermbg=NONE

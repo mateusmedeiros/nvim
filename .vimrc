@@ -15,7 +15,9 @@ set smarttab
 ":highlight Pmenu ctermbg=238 gui=bold
 syntax enable
 
+" fecha o NERDTree junto com a última janela além dele
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" fechar com :B . Caso seja o último buffer, será usado um novo vazio.
 command B bp|sp|bn|bd
 
 "set autochdir
@@ -38,6 +40,11 @@ let g:airline_theme             = 'powerlineish'
 let g:airline_enable_branch     = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:hardtime_default_on = 1
+let g:hardtime_timeout = 2000
+let g:hardtime_ignore_buffer_patterns = [ "CustomPatt[ae]rn", "NERD.*" ]
+let g:hardtime_allow_different_key = 1
+let g:hardtime_maxcount = 5
 
 "imap <C-K> <esc>a<Plug>snipMateNextOrTrigger
 "smap <C-K> <Plug>snipMateNextOrTrigger
@@ -49,6 +56,7 @@ au BufNewFile *.rb 0r ~/.vim/boilerplate/rb
 
 "let g:nerdtree_tabs_open_on_console_startup = 1
 let g:ctrlp_show_hidden=1
+let g:ctrlp_split_window = 0
 let NERDTreeShowHidden=1
 let NERDTreeChDirMode=2
 
@@ -75,10 +83,10 @@ noremap <Right> <NOP>
 "inoremap <C-h> <Left>
 "inoremap <C-l> <Right>
 
-noremap h <NOP>
-""noremap j <NOP>
+"noremap h <NOP>
+"noremap j <NOP>
 "noremap k <NOP>
-noremap l <NOP>
+"noremap l <NOP>
 
 
 "autocmd FileType javascript set omnifunc=tern#Complete
@@ -86,7 +94,7 @@ noremap l <NOP>
 
 "set rtp+=$HOME/.vim/bundle/powerline/powerline/bindings/vim
 let g:ycm_path_to_python_interpreter = '/usr/bin/python2'
-"let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_autoclose_preview_window_after_insertion=1
 " make YCM compatible with UltiSnips (using supertab)

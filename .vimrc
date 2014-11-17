@@ -9,10 +9,7 @@ filetype off
 call neobundle#begin(expand('/home/doodad/.vim/bundle'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-
-
 """"" Bundles here:
-
 NeoBundle 'vim-scripts/a.vim'
 NeoBundle 'jlanzarotta/bufexplorer'
 NeoBundle 'kien/ctrlp.vim'

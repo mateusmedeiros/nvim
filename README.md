@@ -1,12 +1,16 @@
-This is a repository with my .vim directory. I think that the only file useful for other people here is .vimrc, but who knows?
+```bash
+yaourt -S clang
+yaourt -S libc++
+yaourt -S libc++abi
+```
 
 ```bash
 cd ~
-git clone --recursive https://github.com/mateusmedeiros/vim-config.git .vim
-cd ~/.vim/bundle/tern_for_vim/
-npm install
-cd ~
+mv ~/.vim ~/.vim.old > /dev/null 2>&1
+git clone https://github.com/mateusmedeiros/vim-config.git .vim
+curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
+vim +BundleInstall +qall
+CC=clang CXX=clang++ CXXFLAGS="-std=c++11 -stdlib=libc++" LDFLAGS="-stdlib=libc++ -lc++abi" ~/.vim/bundle/YouCompleteMe/install.sh --clang-completer --system-libclang
+mv ~/.vimrc ~/.vimrc.old > /dev/null 2>&1
 ln -s .vim/.vimrc .vimrc
 ```
-
-YouCompleteMe probably won't work out-of-the-box because it's installation is a pain and it has a compiled component. https://github.com/Valloric/YouCompleteMe

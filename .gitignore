@@ -1,0 +1,7 @@
+*.pyc
+undo/*
+!undo/.placeholder
+swap/*
+!swap/.placeholder
+backup/*
+!backup/.placeholder

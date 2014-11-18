@@ -28,9 +28,7 @@ NeoBundle 'tpope/vim-rake'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'cakebaker/scss-syntax.vim'
-NeoBundle 'takac/vim-hardtime'
 NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'jistr/vim-nerdtree-tabs'
 NeoBundle 'slim-template/vim-slim.git'
 NeoBundle 'nelstrom/vim-textobj-rubyblock'
@@ -56,8 +54,6 @@ NeoBundleCheck
 """"" YCM 
 let g:ycm_path_to_python_interpreter = '/usr/bin/python2'
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
-let g:ycm_autoclose_preview_window_after_completion=1
-let g:ycm_autoclose_preview_window_after_insertion=1
 
 """"" Hardtime
 let g:hardtime_default_on = 1 " Always turn hardtime on, on any buffer
@@ -70,6 +66,7 @@ let g:hardtime_maxcount = 5 " Number of times you can press hjkl before they're 
 let NERDTreeShowHidden = 1
 let NERDTreeChDirMode = 2
 let g:nerdtree_tabs_focus_on_files = 1 " Change focus to file after open file
+let g:nerdtree_tabs_autofind = 1  " Always keep NERDTree in sync with the current file
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif " Close vim if only NERDTree is open
 nnoremap <Leader>a :NERDTreeTabsToggle<CR> 
 
@@ -107,9 +104,6 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 """ Fallback for YCM
 set omnifunc=syntaxcomplete#Complete
 
-""" Set anonymous clipboard to X11's one
-set clipboard=unnamedplus
-
 """ Smart indentation and change tabs to spaces
 set autoindent
 set smartindent
@@ -121,8 +115,9 @@ set tabstop=3
 set softtabstop=3
 set shiftwidth=3
 
-""" :B command to close a buffer
-command B bp|sp|bn|bd
+""" Search options
+:set incsearch " Start searching right away (incremental search, instead of waiting for cr)
+:set hlsearch " Highlight search as it goes
 
 """ Line numbers with specified width. Current one is absolute, adjacent ones relative
 set relativenumber 
@@ -148,8 +143,16 @@ map <leader>r :NERDTreeFind<cr>
 """ Always show statusbar
 set laststatus=2
 
+""" Buffer management commands 
+command B bp|sp|bn|bd " :B to close buffer
+nnoremap <F9> :bprev<cr>
+nnoremap <F10> :bnext<cr>
+
 """ Set leader to ,
 let mapleader=","
+
+""" Set anonymous clipboard to X11's one
+set clipboard=unnamedplus
 
 """ Enable syntax highlighting of any kind
 syntax enable

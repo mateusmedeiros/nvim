@@ -40,6 +40,9 @@ NeoBundle 'SirVer/ultisnips'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'sickill/vim-monokai'
+NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'haya14busa/vim-easyoperator-line'
+NeoBundle 'haya14busa/vim-easyoperator-phrase'
 
 call neobundle#end()
 NeoBundleCheck
@@ -70,6 +73,7 @@ let NERDTreeShowHidden = 1
 let NERDTreeChDirMode = 2
 let g:nerdtree_tabs_focus_on_files = 1 " Change focus to file after open file
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif " Close vim if only NERDTree is open
+nnoremap <Leader>a :NERDTreeTabsToggle<CR> 
 
 """"" scss-syntax 
 autocmd FileType scss set iskeyword+=- " Add "-" to the list of keywords on a scss file for correct highlighting
@@ -146,6 +150,9 @@ map <leader>r :NERDTreeFind<cr>
 """ Always show statusbar
 set laststatus=2
 
+""" Set leader to ,
+let mapleader=","
+
 """ Enable syntax highlighting of any kind
 syntax enable
 
@@ -155,5 +162,5 @@ colorscheme monokai
 """ Tab hack for UltiSnips 
 source $HOME/.vim/ultisnips_tab_hack.vim
 " see https://github.com/Valloric/YouCompleteMe/issues/36
-  
+
 filetype plugin indent on

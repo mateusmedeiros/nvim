@@ -41,8 +41,6 @@ NeoBundle 'honza/vim-snippets'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'sickill/vim-monokai'
 NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'haya14busa/vim-easyoperator-line'
-NeoBundle 'haya14busa/vim-easyoperator-phrase'
 
 call neobundle#end()
 NeoBundleCheck

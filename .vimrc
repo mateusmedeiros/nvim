@@ -39,6 +39,7 @@ NeoBundle 'honza/vim-snippets'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'sickill/vim-monokai'
 NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'kchmck/vim-coffee-script'
 
 call neobundle#end()
 NeoBundleCheck

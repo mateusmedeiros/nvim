@@ -40,6 +40,7 @@ NeoBundle 'bling/vim-airline'
 NeoBundle 'sickill/vim-monokai'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'PeterRincker/vim-argumentative'
 
 call neobundle#end()
 NeoBundleCheck
@@ -120,8 +121,7 @@ set shiftwidth=3
 :set incsearch " Start searching right away (incremental search, instead of waiting for cr)
 :set hlsearch " Highlight search as it goes
 
-""" Line numbers with specified width. Current one is absolute, adjacent ones relative
-set relativenumber 
+""" Line numbers and size used by the column (5 numbers)
 set number
 set numberwidth=5
 
@@ -143,6 +143,9 @@ map <leader>r :NERDTreeFind<cr>
 
 """ Always show statusbar
 set laststatus=2
+
+""" Don't try to close a buffer on buffer change (instead hide it)
+set hidden
 
 """ Buffer management commands 
 command B bp|sp|bn|bd " :B to close buffer

@@ -1,50 +1,70 @@
-" ┌───────────────────────────────────┐
-" │             NeoBundle             │
-" └───────────────────────────────────┘
-if has('vim_starting')
-  set nocompatible
-  set runtimepath+=/home/doodad/.vim/bundle/neobundle.vim/
+""""" Auto-install vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+   autocmd VimEnter * PlugInstall
 endif
-filetype off
-call neobundle#begin(expand('/home/doodad/.vim/bundle'))
-NeoBundleFetch 'Shougo/neobundle.vim'
 
-""""" Bundles here:
-NeoBundle 'vim-scripts/a.vim'
-NeoBundle 'jlanzarotta/bufexplorer'
-NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'Raimondi/delimitMate'
-NeoBundle 'Raimondi/vim_search_objects'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'bb:sjl/gundo.vim'
-NeoBundle 'tmhedberg/matchit'
-NeoBundle 'Valloric/YouCompleteMe'
-NeoBundle 'Valloric/MatchTagAlways'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'tpope/vim-sleuth'
-NeoBundle 'tpope/vim-bundler'
-NeoBundle 'tpope/vim-rails'
-NeoBundle 'tpope/vim-rake'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'cakebaker/scss-syntax.vim'
-NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'jistr/vim-nerdtree-tabs'
-NeoBundle 'slim-template/vim-slim.git'
-NeoBundle 'nelstrom/vim-textobj-rubyblock'
-NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'ervandew/supertab'
-NeoBundle 'SirVer/ultisnips'
-NeoBundle 'honza/vim-snippets'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'sickill/vim-monokai'
-NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'PeterRincker/vim-argumentative'
 
-call neobundle#end()
-NeoBundleCheck
+""""" Plug
+call plug#begin('~/.vim/plugged')
 
+""""" Plugins
+Plug 'vim-scripts/a.vim'
+Plug 'jlanzarotta/bufexplorer'
+Plug 'Raimondi/delimitMate'
+Plug 'Raimondi/vim_search_objects'
+Plug 'tmhedberg/matchit'
+Plug 'honza/vim-snippets'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'slim-template/vim-slim'
+Plug 'kana/vim-textobj-user'
+Plug 'bling/vim-airline'
+Plug 'sickill/vim-monokai'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'kchmck/vim-coffee-script'
+Plug 'PeterRincker/vim-argumentative'
+
+" On special conditions
+Plug 'Valloric/YouCompleteMe', { 'on': [] }
+Plug 'SirVer/ultisnips', { 'on': [] }
+Plug 'ervandew/supertab', { 'on': [] }
+
+" On :MERDTreeToggle
+let g:on_nerd_tree_toggle_command_commands = { 'on':  'NERDTreeTabsToggle' }
+Plug 'scrooloose/nerdtree', g:on_nerd_tree_toggle_command_commands 
+Plug 'jistr/vim-nerdtree-tabs', g:on_nerd_tree_toggle_command_commands 
+Plug 'kien/ctrlp.vim', g:on_nerd_tree_toggle_command_commands 
+
+" On html-related filetype
+let g:on_html_related_filetype_types = { 'for': ['html', 'xhtml', 'slim', 'erb', 'htmldjango', 'jsp', 'jsf'] }
+Plug 'mattn/emmet-vim', g:on_html_related_filetype_types 
+Plug 'Valloric/MatchTagAlways', g:on_html_related_filetype_types 
+
+" On Ruby/Rails filetype
+let g:on_ruby_rails_filetype_types = { 'for': ['ruby', 'eruby', 'yaml', 'html', 'slim', 'haml', 'rspec'] }
+Plug 'tpope/vim-bundler', g:on_ruby_rails_filetype_types 
+Plug 'tpope/vim-rails', g:on_ruby_rails_filetype_types 
+Plug 'tpope/vim-rake', g:on_ruby_rails_filetype_types
+Plug 'nelstrom/vim-textobj-rubyblock', g:on_ruby_rails_filetype_types
+
+
+" On Clojure filetype
+let g:on_clojure_filetype_types = { 'for': 'clojure' }
+Plug 'guns/vim-sexp', { 'for': 'clojure' }
+Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
+Plug 'tpope/vim-classpath', { 'for': 'clojure' }
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+Plug 'tpope/vim-leiningen', { 'for': 'clojure' }
+Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
+Plug 'kien/rainbow_parentheses.vim', { 'for': 'clojure' }
+
+""""" Plug
+call plug#end()
 
 
 
@@ -56,6 +76,10 @@ NeoBundleCheck
 """"" YCM 
 let g:ycm_path_to_python_interpreter = '/usr/bin/python2'
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+augroup load_ycm
+   autocmd!
+   autocmd InsertEnter * call plug#load('YouCompleteMe') | call youcompleteme#Enable() | autocmd! load_ycm
+augroup END
 
 """"" Hardtime
 let g:hardtime_default_on = 1 " Always turn hardtime on, on any buffer
@@ -77,7 +101,7 @@ autocmd FileType scss set iskeyword+=- " Add "-" to the list of keywords on a sc
 
 """"" Airline 
 let g:airline_theme = 'powerlineish'
-let g:airline_enable_branch = 1
+let g:airline#extensions#branch#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
@@ -94,6 +118,25 @@ nnoremap <F5> :GundoToggle<CR> " Set Gundo hotkey
 let g:UltiSnipsExpandTrigger       = "<c-tab>"
 let g:UltiSnipsJumpForwardTrigger  = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+augroup load_us
+  autocmd!
+  autocmd InsertEnter * call plug#load('ultisnips') 
+" Tab hack for UltiSnips 
+ \| source $HOME/.vim/ultisnips_tab_hack.vim
+" see https://github.com/Valloric/YouCompleteMe/issues/36
+ \| autocmd! load_us
+augroup END
+
+
+""""" Supertab
+augroup load_st
+  autocmd!
+  autocmd InsertEnter * call plug#load('supertab') | autocmd! load_st
+augroup END
+
+
+""" Delimitmate
+au FileType clojure let b:delimitMate_quotes = "\"" 
 
 
 
@@ -134,6 +177,12 @@ set undolevels=1000
 set undoreload=10000
 
 """ Put backups, swaps and undo files on ~/.vim/{backup,swap,undo}
+""" Assumes that if only one of the directories doesn't exist, all of them don't (which should be true for 99% of the cases)
+if !isdirectory($HOME.'/.vim/backup//')
+  call mkdir($HOME.'/.vim/backup//', "p")
+  call mkdir($HOME.'/.vim/swap//', "p")
+  call mkdir($HOME.'/.vim/undo//', "p")
+endif
 set backupdir=$HOME/.vim/backup//
 set directory=$HOME/.vim/swap//
 set undodir=$HOME/.vim/undo//
@@ -152,6 +201,12 @@ command B bp|sp|bn|bd " :B to close buffer
 nnoremap <F9> :bprev<cr>
 nnoremap <F10> :bnext<cr>
 
+""" Try to minimize cursor changing at insert mode exit
+autocmd InsertLeave * :normal `^
+
+""" Wrap to the other line when moving cursor to the sides (JUDGE ME)
+set whichwrap+=<,>,h,l,[,]
+
 """ Set leader to ,
 let mapleader=","
 
@@ -161,11 +216,8 @@ set clipboard=unnamedplus
 """ Enable syntax highlighting of any kind
 syntax enable
 
-""" Set colorscheme and etc
-colorscheme monokai
+""" Set colorscheme if exists
+silent! colorscheme monokai
 
-""" Tab hack for UltiSnips 
-source $HOME/.vim/ultisnips_tab_hack.vim
-" see https://github.com/Valloric/YouCompleteMe/issues/36
 
 filetype plugin indent on

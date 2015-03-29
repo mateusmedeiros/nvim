@@ -1,5 +1,7 @@
 *.pyc
 bundle
+autoload/plug.vim
+plugged
 undo/*
 !undo/.placeholder
 swap/*

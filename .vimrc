@@ -178,10 +178,10 @@ set undoreload=10000
 
 """ Put backups, swaps and undo files on ~/.vim/{backup,swap,undo}
 """ Assumes that if only one of the directories doesn't exist, all of them don't (which should be true for 99% of the cases)
-if !isdirectory($HOME.'/.vim/backup//')
-  call mkdir($HOME.'/.vim/backup//', "p")
-  call mkdir($HOME.'/.vim/swap//', "p")
-  call mkdir($HOME.'/.vim/undo//', "p")
+if !isdirectory($HOME.'/.vim/backup')
+  call mkdir($HOME.'/.vim/backup', "p")
+  call mkdir($HOME.'/.vim/swap', "p")
+  call mkdir($HOME.'/.vim/undo', "p")
 endif
 set backupdir=$HOME/.vim/backup//
 set directory=$HOME/.vim/swap//

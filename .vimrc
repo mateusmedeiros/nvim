@@ -41,7 +41,7 @@ Plug 'jistr/vim-nerdtree-tabs', g:on_nerd_tree_toggle_command_commands
 Plug 'kien/ctrlp.vim', g:on_nerd_tree_toggle_command_commands 
 
 " On html-related filetype
-let g:on_html_related_filetype_types = { 'for': ['html', 'xhtml', 'slim', 'erb', 'htmldjango', 'jsp', 'jsf'] }
+let g:on_html_related_filetype_types = { 'for': ['html', 'xhtml', 'slim', 'eruby', 'htmldjango', 'jsp', 'jsf'] }
 Plug 'mattn/emmet-vim', g:on_html_related_filetype_types 
 Plug 'Valloric/MatchTagAlways', g:on_html_related_filetype_types 
 
@@ -55,13 +55,13 @@ Plug 'nelstrom/vim-textobj-rubyblock', g:on_ruby_rails_filetype_types
 
 " On Clojure filetype
 let g:on_clojure_filetype_types = { 'for': 'clojure' }
-Plug 'guns/vim-sexp', { 'for': 'clojure' }
-Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
-Plug 'tpope/vim-classpath', { 'for': 'clojure' }
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-Plug 'tpope/vim-leiningen', { 'for': 'clojure' }
-Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
-Plug 'kien/rainbow_parentheses.vim', { 'for': 'clojure' }
+Plug 'guns/vim-sexp', g:on_clojure_filetype_types
+Plug 'tpope/vim-sexp-mappings-for-regular-people', g:on_clojure_filetype_types
+Plug 'tpope/vim-classpath', g:on_clojure_filetype_types
+Plug 'tpope/vim-fireplace', g:on_clojure_filetype_types
+Plug 'tpope/vim-leiningen', g:on_clojure_filetype_types
+Plug 'guns/vim-clojure-highlight', g:on_clojure_filetype_types
+Plug 'kien/rainbow_parentheses.vim', g:on_clojure_filetype_types
 
 """"" Plug
 call plug#end()

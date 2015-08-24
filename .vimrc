@@ -32,10 +32,10 @@ Plug 'sickill/vim-monokai'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'kchmck/vim-coffee-script'
 Plug 'PeterRincker/vim-argumentative'
+Plug 'SirVer/ultisnips'
 
 " On special conditions
 Plug 'Valloric/YouCompleteMe', { 'on': [] }
-Plug 'SirVer/ultisnips', { 'on': [] }
 Plug 'ervandew/supertab', { 'on': [] }
 
 " On :MERDTreeToggle
@@ -126,9 +126,8 @@ let g:UltiSnipsJumpForwardTrigger  = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 augroup load_us
   autocmd!
-  autocmd InsertEnter * call plug#load('ultisnips') 
 " Tab hack for UltiSnips 
- \| source $HOME/.vim/ultisnips_tab_hack.vim
+  autocmd InsertEnter * source $HOME/.vim/ultisnips_tab_hack.vim
 " see https://github.com/Valloric/YouCompleteMe/issues/36
  \| autocmd! load_us
 augroup END

@@ -33,10 +33,9 @@ Plug 'Lokaltog/vim-easymotion'
 Plug 'kchmck/vim-coffee-script'
 Plug 'PeterRincker/vim-argumentative'
 Plug 'SirVer/ultisnips'
-
-" On special conditions
-Plug 'Valloric/YouCompleteMe', { 'on': [] }
-Plug 'ervandew/supertab', { 'on': [] }
+Plug 'Valloric/YouCompleteMe'
+Plug 'ervandew/supertab'
+Plug 'christoomey/vim-tmux-navigator'
 
 " On :MERDTreeToggle
 let g:on_nerd_tree_toggle_command_commands = { 'on':  'NERDTreeTabsToggle' }
@@ -84,7 +83,7 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 augroup load_ycm
    autocmd!
-   autocmd InsertEnter * call plug#load('YouCompleteMe') | call youcompleteme#Enable() | autocmd! load_ycm
+   autocmd InsertEnter * call youcompleteme#Enable() | autocmd! load_ycm
 augroup END
 
 """"" Hardtime
@@ -132,16 +131,17 @@ augroup load_us
  \| autocmd! load_us
 augroup END
 
-
-""""" Supertab
-augroup load_st
-  autocmd!
-  autocmd InsertEnter * call plug#load('supertab') | autocmd! load_st
-augroup END
-
-
 """ Delimitmate
 au FileType clojure let b:delimitMate_quotes = "\"" 
+
+""" vim-tmux-navigator
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 
 
 

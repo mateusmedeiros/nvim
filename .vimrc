@@ -37,16 +37,22 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'ervandew/supertab'
 Plug 'christoomey/vim-tmux-navigator'
 
+" Local
+Plug g:plug_home.'/eclim' " Eclim has a special install process. See http://eclim.org/install.html
+
+
 " On :MERDTreeToggle
 let g:on_nerd_tree_toggle_command_commands = { 'on':  'NERDTreeTabsToggle' }
 Plug 'scrooloose/nerdtree', g:on_nerd_tree_toggle_command_commands 
 Plug 'jistr/vim-nerdtree-tabs', g:on_nerd_tree_toggle_command_commands 
 Plug 'kien/ctrlp.vim', g:on_nerd_tree_toggle_command_commands 
 
+
 " On html-related filetype
 let g:on_html_related_filetype_types = { 'for': ['html', 'xhtml', 'slim', 'eruby', 'htmldjango', 'jsp', 'jsf'] }
 Plug 'mattn/emmet-vim', g:on_html_related_filetype_types 
 Plug 'Valloric/MatchTagAlways', g:on_html_related_filetype_types 
+
 
 " On Ruby/Rails filetype
 let g:on_ruby_rails_filetype_types = { 'for': ['ruby', 'eruby', 'yaml', 'html', 'slim', 'haml', 'rspec'] }
@@ -66,7 +72,7 @@ Plug 'tpope/vim-leiningen', g:on_clojure_filetype_types
 Plug 'guns/vim-clojure-highlight', g:on_clojure_filetype_types
 Plug 'kien/rainbow_parentheses.vim', g:on_clojure_filetype_types
 
-""""" Plug
+
 call plug#end()
 
 
@@ -85,6 +91,9 @@ augroup load_ycm
    autocmd!
    autocmd InsertEnter * call youcompleteme#Enable() | autocmd! load_ycm
 augroup END
+
+""""" Eclim
+let g:EclimCompletionMethod = 'omnifunc'
 
 """"" Hardtime
 let g:hardtime_default_on = 1 " Always turn hardtime on, on any buffer
@@ -151,8 +160,9 @@ nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 " │          Other settings           │
 " └───────────────────────────────────┘
 
-""" Fallback for YCM
-set omnifunc=syntaxcomplete#Complete
+""" Fallbacks for YCM and Eclim configuration
+let &omnifunc="syntaxcomplete#Complete#" . &omnifunc
+let &omnifunc="eclim#" . &omnifunc
 
 """ Smart indentation and change tabs to spaces
 set autoindent
@@ -201,10 +211,24 @@ set laststatus=2
 """ Don't try to close a buffer on buffer change (instead hide it)
 set hidden
 
+""" Clear line (like a dd but without the newline)
+nnoremap du g^d$
+nnoremap dU g^"_d$
+
+""" Copy whole line but not including any whitespace (which also means no newline)
+nnoremap yu m`g^y$``
+
 """ Buffer management commands 
-command B bp|sp|bn|bd " :B to close buffer
-nnoremap <F9> :bprev<cr>
-nnoremap <F10> :bnext<cr>
+command -bang B try | bp | sp | bn | bd<bang> | catch /E89:/ | execute "normal! \<c-w>j" | execute "normal! :q\<cr>" | echoerr v:exception | endtry " :B(!) to close a buffer
+command Bw bp|sp|bn|w|bd " :Bw to close buffer saving modifications
+nnoremap <F9> <Esc>:bp<cr>
+inoremap <F9> <Esc>:bp<cr>
+nnoremap <F10> <Esc>:bn<cr>
+inoremap <F10> <Esc>:bn<cr>
+
+""" Select last inserted text
+nnoremap <C-k> <Esc>`[v`]
+inoremap <C-k> <Esc>`[v`]
 
 """ Try to minimize cursor changing at insert mode exit
 autocmd InsertLeave * :normal `^

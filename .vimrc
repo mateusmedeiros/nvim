@@ -36,6 +36,7 @@ Plug 'SirVer/ultisnips'
 Plug 'Valloric/YouCompleteMe'
 Plug 'ervandew/supertab'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'junegunn/vim-easy-align'
 
 " Local
 Plug g:plug_home.'/eclim' " Eclim has a special install process. See http://eclim.org/install.html
@@ -155,6 +156,9 @@ nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 
 
 
+""" EasyAlign
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 " ┌───────────────────────────────────┐
 " │          Other settings           │

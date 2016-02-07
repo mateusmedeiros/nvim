@@ -140,13 +140,15 @@ au FileType clojure let b:delimitMate_quotes = "\""
 let g:tmux_navigator_no_mappings = 1
 
 nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
+inoremap <silent> <c-h> <Esc>:TmuxNavigateLeft<cr>
 nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+inoremap <silent> <c-j> <Esc>:TmuxNavigateDown<cr>
 nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
+inoremap <silent> <c-k> <Esc>:TmuxNavigateUp<cr>
 nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
+inoremap <silent> <c-l> <Esc>:TmuxNavigateRight<cr>
 nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
-
-
-
+inoremap <silent> <c-\> <Esc>:TmuxNavigatePrevious<cr>
 
 """ EasyAlign
 xmap ga <Plug>(EasyAlign)

@@ -241,9 +241,6 @@ nnoremap <C-P> P<Esc>`[v`]=<Esc>
 """ Remove trailing whitespace
 command Cut %s/\s\+$
 
-""" Try to minimize cursor changing at insert mode exit
-autocmd InsertLeave * :normal `^
-
 """ Wrap to the other line when moving cursor to the sides (JUDGE ME)
 set whichwrap+=<,>,h,l,[,]
 

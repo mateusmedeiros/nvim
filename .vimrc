@@ -61,6 +61,7 @@ let g:on_ruby_rails_filetype_types = { 'for': ['ruby', 'eruby', 'yaml', 'html', 
 Plug 'tpope/vim-bundler', g:on_ruby_rails_filetype_types
 Plug 'tpope/vim-rails', g:on_ruby_rails_filetype_types
 Plug 'tpope/vim-rake', g:on_ruby_rails_filetype_types
+Plug 'thoughtbot/vim-rspec', g:on_ruby_rails_filetype_types
 Plug 'nelstrom/vim-textobj-rubyblock', g:on_ruby_rails_filetype_types
 
 
@@ -160,6 +161,12 @@ nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 """ EasyAlign
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
+
+""" vim-rspec
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+
 
 " ┌───────────────────────────────────┐
 " │          Other settings           │

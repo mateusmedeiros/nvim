@@ -45,21 +45,21 @@ Plug g:plug_home.'/eclim' " Eclim has a special install process. See http://ecli
 
 " On :MERDTreeToggle
 let g:on_nerd_tree_toggle_command_commands = { 'on':  'NERDTreeTabsToggle' }
-Plug 'scrooloose/nerdtree', g:on_nerd_tree_toggle_command_commands 
-Plug 'jistr/vim-nerdtree-tabs', g:on_nerd_tree_toggle_command_commands 
-Plug 'kien/ctrlp.vim', g:on_nerd_tree_toggle_command_commands 
+Plug 'scrooloose/nerdtree', g:on_nerd_tree_toggle_command_commands
+Plug 'jistr/vim-nerdtree-tabs', g:on_nerd_tree_toggle_command_commands
+Plug 'kien/ctrlp.vim', g:on_nerd_tree_toggle_command_commands
 
 
 " On html-related filetype
 let g:on_html_related_filetype_types = { 'for': ['html', 'xhtml', 'slim', 'eruby', 'htmldjango', 'jsp', 'jsf'] }
-Plug 'mattn/emmet-vim', g:on_html_related_filetype_types 
-Plug 'Valloric/MatchTagAlways', g:on_html_related_filetype_types 
+Plug 'mattn/emmet-vim', g:on_html_related_filetype_types
+Plug 'Valloric/MatchTagAlways', g:on_html_related_filetype_types
 
 
 " On Ruby/Rails filetype
 let g:on_ruby_rails_filetype_types = { 'for': ['ruby', 'eruby', 'yaml', 'html', 'slim', 'haml', 'rspec'] }
-Plug 'tpope/vim-bundler', g:on_ruby_rails_filetype_types 
-Plug 'tpope/vim-rails', g:on_ruby_rails_filetype_types 
+Plug 'tpope/vim-bundler', g:on_ruby_rails_filetype_types
+Plug 'tpope/vim-rails', g:on_ruby_rails_filetype_types
 Plug 'tpope/vim-rake', g:on_ruby_rails_filetype_types
 Plug 'nelstrom/vim-textobj-rubyblock', g:on_ruby_rails_filetype_types
 
@@ -84,7 +84,7 @@ call plug#end()
 " │          Plugin options           │
 " └───────────────────────────────────┘
 
-""""" YCM 
+""" YCM
 let g:ycm_path_to_python_interpreter = '/usr/bin/python2'
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 let g:ycm_autoclose_preview_window_after_completion = 1
@@ -94,28 +94,28 @@ augroup load_ycm
    autocmd InsertEnter * call youcompleteme#Enable() | autocmd! load_ycm
 augroup END
 
-""""" Eclim
+""" Eclim
 let g:EclimCompletionMethod = 'omnifunc'
 
-""""" Hardtime
+""" Hardtime
 let g:hardtime_default_on = 1 " Always turn hardtime on, on any buffer
 let g:hardtime_timeout = 2000 " Cooldown of the forbidden skill
 let g:hardtime_ignore_buffer_patterns = [ "NERD.*" ] " Turn off hardtime on NERDTree
 let g:hardtime_allow_different_key = 1
 let g:hardtime_maxcount = 5 " Number of times you can press hjkl before they're disabled
 
-""""" NERDTree / NERDTreeTabs 
+""" NERDTree / NERDTreeTabs
 let NERDTreeShowHidden = 1
 let NERDTreeChDirMode = 2
 let g:nerdtree_tabs_focus_on_files = 1 " Change focus to file after open file
 let g:nerdtree_tabs_autofind = 1  " Always keep NERDTree in sync with the current file
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif " Close vim if only NERDTree is open
-nnoremap <Leader>a :NERDTreeTabsToggle<CR> 
+nnoremap <Leader>a :NERDTreeTabsToggle<CR>
 
-""""" scss-syntax 
+""" scss-syntax
 autocmd FileType scss set iskeyword+=- " Add "-" to the list of keywords on a scss file for correct highlighting
 
-""""" Airline 
+""" Airline
 let g:airline_theme = 'powerlineish'
 let g:airline#extensions#branch#enabled = 1
 let g:airline_powerline_fonts = 1
@@ -123,27 +123,27 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 
-""""" CtrlP 
+""" CtrlP
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_split_window = 0
 
-""""" Gundo 
+""" Gundo
 nnoremap <F5> :GundoToggle<CR> " Set Gundo hotkey
 
-""""" UltiSnips
+""" UltiSnips
 let g:UltiSnipsExpandTrigger       = "<c-tab>"
 let g:UltiSnipsJumpForwardTrigger  = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 augroup load_us
   autocmd!
-" Tab hack for UltiSnips 
+" Tab hack for UltiSnips
   autocmd InsertEnter * source $HOME/.vim/ultisnips_tab_hack.vim
 " see https://github.com/Valloric/YouCompleteMe/issues/36
  \| autocmd! load_us
 augroup END
 
 """ Delimitmate
-au FileType clojure let b:delimitMate_quotes = "\"" 
+au FileType clojure let b:delimitMate_quotes = "\""
 
 """ vim-tmux-navigator
 let g:tmux_navigator_no_mappings = 1
@@ -172,10 +172,10 @@ let &omnifunc="eclim#" . &omnifunc
 """ Smart indentation and change tabs to spaces
 set autoindent
 set smartindent
-set expandtab 
+set expandtab
 set smarttab
 
-""" Amount of spaces for indentation 
+""" Amount of spaces for indentation
 set tabstop=3
 set softtabstop=3
 set shiftwidth=3
@@ -192,8 +192,8 @@ set numberwidth=5
 set backup
 
 """ Enable undo and set options
-set undofile                
-set undolevels=1000         
+set undofile
+set undolevels=1000
 set undoreload=10000
 
 """ Put backups, swaps and undo files on ~/.vim/{backup,swap,undo}
@@ -223,7 +223,7 @@ nnoremap dU g^"_d$
 """ Copy whole line but not including any whitespace (which also means no newline)
 nnoremap yu m`g^y$``
 
-""" Buffer management commands 
+""" Buffer management commands
 command -bang B try | bp | sp | bn | bd<bang> | catch /E89:/ | execute "normal! \<c-w>j" | execute "normal! :q\<cr>" | echoerr v:exception | endtry " :B(!) to close a buffer
 command Bw bp|sp|bn|w|bd " :Bw to close buffer saving modifications
 nnoremap <F9> <Esc>:bp<cr>
@@ -234,6 +234,8 @@ inoremap <F10> <Esc>:bn<cr>
 """ Select last inserted text
 nnoremap <C-k> <Esc>`[v`]
 inoremap <C-k> <Esc>`[v`]
+""" Remove trailing whitespace
+command Cut %s/\s\+$
 
 """ Try to minimize cursor changing at insert mode exit
 autocmd InsertLeave * :normal `^

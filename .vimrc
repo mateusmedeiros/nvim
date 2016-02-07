@@ -228,9 +228,14 @@ inoremap <F9> <Esc>:bp<cr>
 nnoremap <F10> <Esc>:bn<cr>
 inoremap <F10> <Esc>:bn<cr>
 
-""" Select last inserted text
-nnoremap <C-k> <Esc>`[v`]
-inoremap <C-k> <Esc>`[v`]
+""" Select last inserted text (The ĸ character is generated on my keyboard
+""" layout/OS when I press 'Alt Gr' + 'K')
+nnoremap ĸ <Esc>`[v`]
+
+""" Auto-indent text on paste
+nnoremap <C-p> p<Esc>`[v`]=<Esc>
+nnoremap <C-P> P<Esc>`[v`]=<Esc>
+
 """ Remove trailing whitespace
 command Cut %s/\s\+$
 

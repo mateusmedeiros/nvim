@@ -98,13 +98,6 @@ augroup END
 """ Eclim
 let g:EclimCompletionMethod = 'omnifunc'
 
-""" Hardtime
-let g:hardtime_default_on = 1 " Always turn hardtime on, on any buffer
-let g:hardtime_timeout = 2000 " Cooldown of the forbidden skill
-let g:hardtime_ignore_buffer_patterns = [ "NERD.*" ] " Turn off hardtime on NERDTree
-let g:hardtime_allow_different_key = 1
-let g:hardtime_maxcount = 5 " Number of times you can press hjkl before they're disabled
-
 """ NERDTree / NERDTreeTabs
 let NERDTreeShowHidden = 1
 let NERDTreeChDirMode = 2
@@ -127,9 +120,6 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 """ CtrlP
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_split_window = 0
-
-""" Gundo
-nnoremap <F5> :GundoToggle<CR> " Set Gundo hotkey
 
 """ UltiSnips
 let g:UltiSnipsExpandTrigger       = "<c-tab>"

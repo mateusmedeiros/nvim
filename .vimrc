@@ -91,6 +91,13 @@ Plug 'rust-lang/rust.vim', g:on_rust_filetype_types
 call plug#end()
 
 
+" ┌───────────────────────────────────┐
+" │         Special env vars          │
+" └───────────────────────────────────┘
+
+" This is reused to set g:ycm_rust_src_path, but it is NOT used only there
+" vim-racer uses it automatically, so it needs to be defined like this
+let $RUST_SRC_PATH="/usr/src/rust/src/"
 
 
 " ┌───────────────────────────────────┐
@@ -102,6 +109,7 @@ let g:ycm_path_to_python_interpreter = '/usr/bin/python2'
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_rust_src_path = $RUST_SRC_PATH
 augroup load_ycm
    autocmd!
    autocmd InsertEnter * call youcompleteme#Enable() | autocmd! load_ycm
@@ -132,7 +140,6 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 
 """ vim-racer
 let g:racer_cmd = $HOME.'/.cargo/bin/racer'
-let $RUST_SRC_PATH="/usr/src/rust/src/"
 
 """ CtrlP
 let g:ctrlp_show_hidden = 1

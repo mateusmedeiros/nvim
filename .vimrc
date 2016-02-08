@@ -77,6 +77,11 @@ Plug 'guns/vim-clojure-highlight', g:on_clojure_filetype_types
 Plug 'kien/rainbow_parentheses.vim', g:on_clojure_filetype_types
 
 
+" On Javascript filetype
+let g:on_javascript_filetype_types = { 'for': ['javascript'] }
+Plug 'othree/yajs.vim', g:on_javascript_filetype_types
+Plug 'isRuslan/vim-es6', g:on_javascript_filetype_types
+
 call plug#end()
 
 

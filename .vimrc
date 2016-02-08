@@ -82,6 +82,12 @@ let g:on_javascript_filetype_types = { 'for': ['javascript'] }
 Plug 'othree/yajs.vim', g:on_javascript_filetype_types
 Plug 'isRuslan/vim-es6', g:on_javascript_filetype_types
 
+
+" On Rust filetype
+let g:on_rust_filetype_types = { 'for': ['rust'] }
+Plug 'racer-rust/vim-racer', g:on_rust_filetype_types
+Plug 'rust-lang/rust.vim', g:on_rust_filetype_types
+
 call plug#end()
 
 
@@ -122,6 +128,10 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
+
+""" vim-racer
+let g:racer_cmd = $HOME.'/.cargo/bin/racer'
+let $RUST_SRC_PATH="/usr/src/rust/src/"
 
 """ CtrlP
 let g:ctrlp_show_hidden = 1

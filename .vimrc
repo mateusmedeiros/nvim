@@ -109,6 +109,7 @@ augroup END
 
 """ Eclim
 let g:EclimCompletionMethod = 'omnifunc'
+let g:EclimJavascriptValidate = 0
 
 """ NERDTree / NERDTreeTabs
 let NERDTreeShowHidden = 1

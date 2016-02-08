@@ -266,7 +266,7 @@ nnoremap <C-p> p<Esc>`[v`]=<Esc>
 nnoremap <C-P> P<Esc>`[v`]=<Esc>
 
 """ Remove trailing whitespace
-command Cut %s/\s\+$
+command Cut %s/\s\+$//e
 
 """ Wrap to the other line when moving cursor to the sides (JUDGE ME)
 set whichwrap+=<,>,h,l,[,]

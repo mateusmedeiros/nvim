@@ -63,6 +63,7 @@ Plug 'tpope/vim-rails', g:on_ruby_rails_filetype_types
 Plug 'tpope/vim-rake', g:on_ruby_rails_filetype_types
 Plug 'thoughtbot/vim-rspec', g:on_ruby_rails_filetype_types
 Plug 'nelstrom/vim-textobj-rubyblock', g:on_ruby_rails_filetype_types
+Plug 'vim-utils/vim-ruby-fold', g:on_ruby_rails_filetype_types
 
 
 " On Clojure filetype

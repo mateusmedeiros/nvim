@@ -43,7 +43,7 @@ Plug 'scrooloose/syntastic'
 Plug g:plug_home.'/eclim' " Eclim has a special install process. See http://eclim.org/install.html
 
 
-" On :MERDTreeToggle
+" On :NERDTreeToggle
 let g:on_nerd_tree_toggle_command_commands = { 'on':  'NERDTreeTabsToggle' }
 Plug 'scrooloose/nerdtree', g:on_nerd_tree_toggle_command_commands
 Plug 'jistr/vim-nerdtree-tabs', g:on_nerd_tree_toggle_command_commands

@@ -164,6 +164,10 @@ map <Leader>a :call RunAllSpecs()<CR>
 " │          Other settings           │
 " └───────────────────────────────────┘
 
+""" Set leader to ,
+""" NOTE: Put this before any mapping that uses it, or the mapping will use the old leader
+let mapleader=","
+
 """ Fallbacks for YCM and Eclim configuration
 let &omnifunc="syntaxcomplete#Complete#" . &omnifunc
 let &omnifunc="eclim#" . &omnifunc
@@ -243,9 +247,6 @@ command Cut %s/\s\+$
 
 """ Wrap to the other line when moving cursor to the sides (JUDGE ME)
 set whichwrap+=<,>,h,l,[,]
-
-""" Set leader to ,
-let mapleader=","
 
 """ Set anonymous clipboard to X11's one
 set clipboard=unnamedplus

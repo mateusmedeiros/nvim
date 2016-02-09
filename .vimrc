@@ -28,27 +28,30 @@ Plug 'honza/vim-snippets'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'cakebaker/scss-syntax.vim'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'slim-template/vim-slim'
 Plug 'kana/vim-textobj-user'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Lokaltog/vim-easymotion'
-Plug 'kchmck/vim-coffee-script'
 Plug 'PeterRincker/vim-argumentative'
 Plug 'SirVer/ultisnips'
 Plug 'Valloric/YouCompleteMe'
 Plug 'ervandew/supertab'
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/vim-easy-align'
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-endwise'
 Plug 'w0ng/vim-hybrid'
 
+" Deferred for manual loading
+Plug 'christoomey/vim-tmux-navigator', { 'on': [] }
+
 
 " Local
 Plug g:plug_home.'/eclim' " Eclim has a special install process. See http://eclim.org/install.html
+
+
+" Only when inside TMUX
+call LoadPlugIfExists('vim-tmux-navigator', '$TMUX')
 
 
 " On :NERDTreeToggle
@@ -56,6 +59,10 @@ let g:on_nerd_tree_toggle_command_commands = { 'on':  'NERDTreeTabsToggle' }
 Plug 'scrooloose/nerdtree', g:on_nerd_tree_toggle_command_commands
 Plug 'jistr/vim-nerdtree-tabs', g:on_nerd_tree_toggle_command_commands
 Plug 'kien/ctrlp.vim', g:on_nerd_tree_toggle_command_commands
+
+
+" On slim filetype
+Plug 'slim-template/vim-slim', { 'for': 'slim' }
 
 
 " On html-related filetype
@@ -95,6 +102,15 @@ Plug 'isRuslan/vim-es6', g:on_javascript_filetype_types
 let g:on_rust_filetype_types = { 'for': ['rust'] }
 Plug 'racer-rust/vim-racer', g:on_rust_filetype_types
 Plug 'rust-lang/rust.vim', g:on_rust_filetype_types
+
+
+" On Coffeescript filetype
+Plug 'kchmck/vim-coffee-script', { 'for' : 'coffee' }
+
+
+" On SCSS filetype
+Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
+
 
 call plug#end()
 

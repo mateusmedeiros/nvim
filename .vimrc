@@ -107,16 +107,29 @@ let $RUST_SRC_PATH="/usr/src/rust/src/"
 " │          Plugin options           │
 " └───────────────────────────────────┘
 
+""" Important note: Some plugins are configured in special ways so that they can
+""" behave with each other, so be extra careful when changing these. They are:
+"""  - YCM
+"""  - Ultisnips
+"""  - Supertab (it's included so that YCM and ultisnips work fine with tab)
+"""  - Eclim
+
 """ YCM
 let g:ycm_path_to_python_interpreter = '/usr/bin/python2'
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_add_preview_to_completeopt = 1
+let g:ycm_min_num_of_chars_for_completion = 1
+let g:ycm_key_list_select_completion = ['<C-n>']
+let g:ycm_key_list_previous_completion = ['<C-p>']
 let g:ycm_rust_src_path = $RUST_SRC_PATH
-augroup load_ycm
-   autocmd!
-   autocmd InsertEnter * call youcompleteme#Enable() | autocmd! load_ycm
-augroup END
+
+""" UltiSnips
+source $HOME/.vim/ultisnips_tab_hack.vim
+
+""" Supertab
+let g:SuperTabDefaultCompletionType = '<C-n>'
 
 """ Eclim
 let g:EclimCompletionMethod = 'omnifunc'
@@ -148,24 +161,11 @@ let g:racer_cmd = $HOME.'/.cargo/bin/racer'
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_split_window = 0
 
-""" UltiSnips
-let g:UltiSnipsExpandTrigger       = "<c-tab>"
-let g:UltiSnipsJumpForwardTrigger  = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-augroup load_us
-  autocmd!
-" Tab hack for UltiSnips
-  autocmd InsertEnter * source $HOME/.vim/ultisnips_tab_hack.vim
-" see https://github.com/Valloric/YouCompleteMe/issues/36
- \| autocmd! load_us
-augroup END
-
 """ Delimitmate
 au FileType clojure let b:delimitMate_quotes = "\""
 
 """ vim-tmux-navigator
 let g:tmux_navigator_no_mappings = 1
-
 nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
 inoremap <silent> <c-h> <Esc>:TmuxNavigateLeft<cr>
 nnoremap <silent> <c-j> :TmuxNavigateDown<cr>

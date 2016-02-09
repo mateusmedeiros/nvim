@@ -54,10 +54,9 @@ call LoadPlugIfExists('vim-tmux-navigator', '$TMUX')
 
 
 " On :NERDTreeToggle
-let g:on_nerd_tree_toggle_command_commands = { 'on':  'NERDTreeTabsToggle' }
-Plug 'scrooloose/nerdtree', g:on_nerd_tree_toggle_command_commands
-Plug 'jistr/vim-nerdtree-tabs', g:on_nerd_tree_toggle_command_commands
-Plug 'kien/ctrlp.vim', g:on_nerd_tree_toggle_command_commands
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeTabsToggle' }
+Plug 'jistr/vim-nerdtree-tabs', { 'on': 'NERDTreeTabsToggle' }
+Plug 'kien/ctrlp.vim', { 'on': 'NERDTreeTabsToggle' }
 
 
 " On slim filetype
@@ -81,26 +80,23 @@ Plug 'vim-utils/vim-ruby-fold', g:on_ruby_rails_filetype_types
 
 
 " On Clojure filetype
-let g:on_clojure_filetype_types = { 'for': 'clojure' }
-Plug 'guns/vim-sexp', g:on_clojure_filetype_types
-Plug 'tpope/vim-sexp-mappings-for-regular-people', g:on_clojure_filetype_types
-Plug 'tpope/vim-classpath', g:on_clojure_filetype_types
-Plug 'tpope/vim-fireplace', g:on_clojure_filetype_types
-Plug 'tpope/vim-leiningen', g:on_clojure_filetype_types
-Plug 'guns/vim-clojure-highlight', g:on_clojure_filetype_types
-Plug 'kien/rainbow_parentheses.vim', g:on_clojure_filetype_types
+Plug 'guns/vim-sexp', { 'for': 'clojure' }
+Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
+Plug 'tpope/vim-classpath', { 'for': 'clojure' }
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+Plug 'tpope/vim-leiningen', { 'for': 'clojure' }
+Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
+Plug 'kien/rainbow_parentheses.vim', { 'for': 'clojure' }
 
 
 " On Javascript filetype
-let g:on_javascript_filetype_types = { 'for': ['javascript'] }
-Plug 'othree/yajs.vim', g:on_javascript_filetype_types
-Plug 'isRuslan/vim-es6', g:on_javascript_filetype_types
+Plug 'othree/yajs.vim', { 'for': 'javascript' }
+Plug 'isRuslan/vim-es6', { 'for': 'javascript' }
 
 
 " On Rust filetype
-let g:on_rust_filetype_types = { 'for': ['rust'] }
-Plug 'racer-rust/vim-racer', g:on_rust_filetype_types
-Plug 'rust-lang/rust.vim', g:on_rust_filetype_types
+Plug 'racer-rust/vim-racer', { 'for': 'rust' }
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
 
 " On Coffeescript filetype

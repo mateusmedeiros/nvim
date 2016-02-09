@@ -21,7 +21,6 @@ call plug#begin('~/.vim/plugged')
 
 """"" Plugins
 Plug 'vim-scripts/a.vim'
-Plug 'jlanzarotta/bufexplorer'
 Plug 'Raimondi/delimitMate'
 Plug 'Raimondi/vim_search_objects'
 Plug 'tmhedberg/matchit'

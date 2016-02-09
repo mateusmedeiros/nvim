@@ -237,7 +237,7 @@ set backupdir=$HOME/.vim/backup//
 set directory=$HOME/.vim/swap//
 set undodir=$HOME/.vim/undo//
 
-""" \r to highlight the current file on NERDTree
+""" <leader>r to highlight the current file on NERDTree
 map <leader>r :NERDTreeFind<cr>
 
 """ Always show statusbar

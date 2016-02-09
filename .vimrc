@@ -39,6 +39,8 @@ Plug 'ervandew/supertab'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/vim-easy-align'
 Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-endwise'
+
 
 " Local
 Plug g:plug_home.'/eclim' " Eclim has a special install process. See http://eclim.org/install.html

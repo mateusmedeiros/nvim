@@ -29,7 +29,6 @@ Plug 'slim-template/vim-slim'
 Plug 'kana/vim-textobj-user'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'sickill/vim-monokai'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'kchmck/vim-coffee-script'
 Plug 'PeterRincker/vim-argumentative'
@@ -40,6 +39,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/vim-easy-align'
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-endwise'
+Plug 'w0ng/vim-hybrid'
 
 
 " Local
@@ -304,7 +304,8 @@ set clipboard=unnamedplus
 syntax enable
 
 """ Set colorscheme if exists
-silent! colorscheme monokai
+set background=dark
+silent! colorscheme hybrid
 
 
 filetype plugin indent on

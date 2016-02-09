@@ -140,8 +140,7 @@ let NERDTreeShowHidden = 1
 let NERDTreeChDirMode = 2
 let g:nerdtree_tabs_focus_on_files = 1 " Change focus to file after open file
 let g:nerdtree_tabs_autofind = 1  " Always keep NERDTree in sync with the current file
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif " Close vim if only NERDTree is open
-nnoremap <Leader>a :NERDTreeTabsToggle<CR>
+autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif " Close vim if only NERDTree is open
 
 """ scss-syntax
 autocmd FileType scss set iskeyword+=- " Add "-" to the list of keywords on a scss file for correct highlighting
@@ -166,6 +165,50 @@ au FileType clojure let b:delimitMate_quotes = "\""
 
 """ vim-tmux-navigator
 let g:tmux_navigator_no_mappings = 1
+
+
+" ┌───────────────────────────────────┐
+" │             Mappings              │
+" └───────────────────────────────────┘
+
+""" Set leader to ,
+""" NOTE: Put this before any mapping that uses it, or the mapping will use the old leader
+let mapleader=","
+
+""" <leader>r to highlight the current file on NERDTree
+map <leader>r :NERDTreeFind<cr>
+
+""" <leader>s to toggle NERDTree
+nnoremap <Leader>s :NERDTreeTabsToggle<CR>
+
+""" Clear line (like a dd but without the newline)
+nnoremap du g^d$
+nnoremap dU g^"_d$
+
+""" Copy whole line but not including any whitespace (which also means no newline)
+nnoremap yu m`g^y$``
+
+""" Erase line (like a dd but using the black-hole register)
+nnoremap dD "_dd
+
+""" Change del to delete characters without saving in the default register
+nnoremap <Del> "_x
+
+""" Navigate through tabs with F9 (left) and F10 (right)
+nnoremap <expr> <F9>  bufname("%") != "NERD_tree_1" ? ":bp<CR>" : ":wincmd l<CR>:bp<CR>"
+inoremap <expr> <F9>  bufname("%") != "NERD_tree_1" ? ":bp<CR>" : ":wincmd l<CR>:bp<CR>"
+nnoremap <expr> <F10> bufname("%") != "NERD_tree_1" ? ":bn<CR>" : ":wincmd l<CR>:bn<CR>"
+inoremap <expr> <F10> bufname("%") != "NERD_tree_1" ? ":bn<CR>" : ":wincmd l<CR>:bn<CR>"
+
+""" Select last inserted text (The ĸ character is generated on my keyboard
+""" layout/OS when I press 'Alt Gr' + 'K')
+nnoremap ĸ <Esc>`[v`]
+
+""" Auto-indent text on paste
+nnoremap <C-p> p<Esc>`[v`]=<Esc>
+nnoremap <C-P> P<Esc>`[v`]=<Esc>
+
+""" Custom tmux nav hotkeys (needs g:tmux_navigator_no_mappings set to 1)
 nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
 inoremap <silent> <c-h> <Esc>:TmuxNavigateLeft<cr>
 nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
@@ -188,12 +231,20 @@ map <Leader>a :call RunAllSpecs()<CR>
 
 
 " ┌───────────────────────────────────┐
-" │          Other settings           │
+" │             Commands              │
 " └───────────────────────────────────┘
 
-""" Set leader to ,
-""" NOTE: Put this before any mapping that uses it, or the mapping will use the old leader
-let mapleader=","
+""" Buffer management commands
+command -bang B try | bp | sp | bn | bd<bang> | catch /E89:/ | execute "normal! \<c-w>j" | execute "normal! :q\<cr>" | echoerr v:exception | endtry " :B(!) to close a buffer
+command Bw bp|sp|bn|w|bd " :Bw to close buffer saving modifications
+
+""" Remove trailing whitespace
+command Cut %s/\s\+$//e
+
+
+" ┌───────────────────────────────────┐
+" │          Other settings           │
+" └───────────────────────────────────┘
 
 """ Fallbacks for YCM and Eclim configuration
 let &omnifunc="syntaxcomplete#Complete#" . &omnifunc
@@ -237,46 +288,11 @@ set backupdir=$HOME/.vim/backup//
 set directory=$HOME/.vim/swap//
 set undodir=$HOME/.vim/undo//
 
-""" <leader>r to highlight the current file on NERDTree
-map <leader>r :NERDTreeFind<cr>
-
 """ Always show statusbar
 set laststatus=2
 
 """ Don't try to close a buffer on buffer change (instead hide it)
 set hidden
-
-""" Clear line (like a dd but without the newline)
-nnoremap du g^d$
-nnoremap dU g^"_d$
-
-""" Copy whole line but not including any whitespace (which also means no newline)
-nnoremap yu m`g^y$``
-
-""" Erase line (like a dd but using the black-hole register)
-nnoremap dD "_dd
-
-""" Change del to delete characters without saving in the default register
-nnoremap <Del> "_x
-
-""" Buffer management commands
-command -bang B try | bp | sp | bn | bd<bang> | catch /E89:/ | execute "normal! \<c-w>j" | execute "normal! :q\<cr>" | echoerr v:exception | endtry " :B(!) to close a buffer
-command Bw bp|sp|bn|w|bd " :Bw to close buffer saving modifications
-nnoremap <F9> <Esc>:bp<cr>
-inoremap <F9> <Esc>:bp<cr>
-nnoremap <F10> <Esc>:bn<cr>
-inoremap <F10> <Esc>:bn<cr>
-
-""" Select last inserted text (The ĸ character is generated on my keyboard
-""" layout/OS when I press 'Alt Gr' + 'K')
-nnoremap ĸ <Esc>`[v`]
-
-""" Auto-indent text on paste
-nnoremap <C-p> p<Esc>`[v`]=<Esc>
-nnoremap <C-P> P<Esc>`[v`]=<Esc>
-
-""" Remove trailing whitespace
-command Cut %s/\s\+$//e
 
 """ Wrap to the other line when moving cursor to the sides (JUDGE ME)
 set whichwrap+=<,>,h,l,[,]

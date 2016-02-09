@@ -53,8 +53,8 @@ function ExpandSnippetOrCarriageReturn()
 endfunction
 
 " See https://github.com/Valloric/YouCompleteMe/issues/420#issuecomment-152884272
+let g:endwise_no_mappings = 1
 if exists("*EndwiseDiscretionary")
-  let g:endwise_no_mappings = 1
   inoremap <expr> <CR> pumvisible() ? "\<C-R>=ExpandSnippetOrCarriageReturn()\<CR>" : "\<CR>\<C-R>=EndwiseDiscretionary()\<CR>"
 else
   inoremap <expr> <CR> pumvisible() ? "\<C-R>=ExpandSnippetOrCarriageReturn()\<CR>" : "\<CR>"

@@ -41,6 +41,7 @@ Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-endwise'
 Plug 'w0ng/vim-hybrid'
 
+
 " Deferred for manual loading
 Plug 'christoomey/vim-tmux-navigator', { 'on': [] }
 

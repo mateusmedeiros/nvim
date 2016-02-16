@@ -339,6 +339,9 @@ silent! colorscheme hybrid
 " │          gvim overrides           │
 " └───────────────────────────────────┘
 if has('gui_running')
+   """ Initialize gui
+   gui
+
    """ set colorscheme to solarized
    set background=dark
    silent! colorscheme solarized

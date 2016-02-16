@@ -42,18 +42,6 @@ Plug 'tpope/vim-endwise'
 Plug 'w0ng/vim-hybrid'
 
 
-" Deferred for manual loading
-Plug 'christoomey/vim-tmux-navigator', { 'on': [] }
-
-
-" Local
-Plug g:plug_home.'/eclim' " Eclim has a special install process. See http://eclim.org/install.html
-
-
-" Only when inside TMUX
-call LoadPlugIfExists('vim-tmux-navigator', '$TMUX')
-
-
 " On :NERDTreeToggle
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeTabsToggle' }
 Plug 'jistr/vim-nerdtree-tabs', { 'on': 'NERDTreeTabsToggle' }
@@ -106,6 +94,28 @@ Plug 'kchmck/vim-coffee-script', { 'for' : 'coffee' }
 
 " On SCSS filetype
 Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
+
+
+""" Local
+Plug g:plug_home.'/eclim' " Eclim has a special install process. See http://eclim.org/install.html
+"""
+
+
+""" Deferred for manual loading
+
+" Only when inside TMUX
+Plug 'christoomey/vim-tmux-navigator', { 'on': [] }
+call LoadPlugIfExists('vim-tmux-navigator', '$TMUX')
+
+" Only when using gvim
+Plug 'altercation/vim-colors-solarized', { 'on': [] }
+Plug 'lambdalisue/vim-fullscreen', { 'on': [] }
+if has('gui_running')
+   call plug#load('vim-colors-solarized')
+   call plug#load('vim-fullscreen')
+endif
+
+"""
 
 
 call plug#end()
@@ -323,6 +333,19 @@ syntax enable
 """ Set colorscheme if exists
 set background=dark
 silent! colorscheme hybrid
+
+
+" ┌───────────────────────────────────┐
+" │          gvim overrides           │
+" └───────────────────────────────────┘
+if has('gui_running')
+   """ set colorscheme to solarized
+   set background=dark
+   silent! colorscheme solarized
+
+   """ try to make gvim fullscreen with the help of wmctrl and vim-fullscreen
+   silent! FullscreenToggle
+endif
 
 
 filetype plugin indent on

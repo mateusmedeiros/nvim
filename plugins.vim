@@ -88,14 +88,6 @@ Plug g:plug_home.'/eclim', { 'for': 'java' } " Eclim has a special install proce
 " Only when inside TMUX
 Plug 'christoomey/vim-tmux-navigator', { 'on': [] }
 call LoadPlugIfExists('vim-tmux-navigator', '$TMUX')
-
-" Only when using gvim
-Plug 'altercation/vim-colors-solarized', { 'on': [] }
-Plug 'lambdalisue/vim-fullscreen', { 'on': [] }
-if has('gui_running')
-   call plug#load('vim-colors-solarized')
-   call plug#load('vim-fullscreen')
-endif
 """
 
 call plug#end()

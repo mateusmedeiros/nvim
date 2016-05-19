@@ -8,8 +8,4 @@ source $HOME/.config/nvim/mappings.vim
 source $HOME/.config/nvim/commands.vim
 source $HOME/.config/nvim/settings.vim
 
-if has('gui_running')
-  source $HOME/.config/nvim/gvim.vim
-endif
-
 filetype plugin indent on

@@ -1,5 +1,5 @@
 ```bash
-yaourt -S clang libc++ libc++abi mercurial cmake rust-src
+yaourt -S clang libc++ libc++abi nvim mercurial cmake rust-src
 ```
 
 ```bash

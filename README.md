@@ -18,3 +18,13 @@ sudo npm install -g eslint eslint_d babel-eslint esling-plugin-react
 gem install rubocop
 ```
 
+See .tmux.conf. https://gist.github.com/mateusmedeiros/e6c7301e9956de123da4.
+```bash
+set -g update-environment 'DISPLAY SSH_ASKPASS SSH_AGENT_PID SSH_CONNECTION WINDOWID XAUTHORITY TERM'
+if "[[ ${TERM} =~ 256color || ${TERM} == fbterm ]]" 'set -g default-terminal screen-256color'
+```
+
+See .zshrc. https://github.com/mateusmedeiros/zsh-config/blob/master/.zshrc
+```bash
+export TERM="screen-256color"
+```

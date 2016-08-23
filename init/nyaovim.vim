@@ -1,0 +1,2 @@
+NERDTreeTabsToggle
+normal CD

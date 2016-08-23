@@ -2,6 +2,9 @@
 " │              Settings             │
 " └───────────────────────────────────┘
 
+""" Some file watchers go nuts when this is not set to yes
+set backupcopy=yes
+
 """ Smart indentation and change tabs to spaces
 set autoindent
 set smartindent
@@ -54,7 +57,3 @@ set clipboard=unnamedplus
 
 """ Enable syntax highlighting of any kind
 syntax enable
-
-""" Set colorscheme if exists
-set background=dark
-silent! colorscheme hybrid

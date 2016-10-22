@@ -49,6 +49,10 @@ set laststatus=2
 """ Don't try to close a buffer on buffer change (instead hide it)
 set hidden
 
+""" Split new buffers to the right and bottom halfs of the screen
+set splitbelow
+set splitright
+
 """ Wrap to the other line when moving cursor to the sides (JUDGE ME)
 set whichwrap+=<,>,h,l,[,]
 

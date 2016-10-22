@@ -24,20 +24,14 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'PeterRincker/vim-argumentative'
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'Shougo/neosnippet.vim' | Plug 'honza/vim-snippets' | Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/deoplete.nvim'
-" Plug 'Valloric/YouCompleteMe'
-Plug 'ervandew/supertab'
 Plug 'neomake/neomake'
 Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-endwise'
 Plug 'w0ng/vim-hybrid'
 Plug 'ctrlpvim/ctrlp.vim'
-
-" On :NERDTreeToggle
-Plug 'brookhong/nerdtree', { 'on': 'NERDTreeTabsToggle' }
-" Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeTabsToggle' }
-Plug 'jistr/vim-nerdtree-tabs', { 'on': 'NERDTreeTabsToggle' }
+Plug 'scrooloose/nerdtree'
 
 source $HOME/.config/nvim/init/plugins/slim.vim
 source $HOME/.config/nvim/init/plugins/html.vim
@@ -46,13 +40,9 @@ source $HOME/.config/nvim/init/plugins/clojure.vim
 source $HOME/.config/nvim/init/plugins/javascript.vim
 source $HOME/.config/nvim/init/plugins/rust.vim
 source $HOME/.config/nvim/init/plugins/coffee.vim
+source $HOME/.config/nvim/init/plugins/stylesheets.vim
 source $HOME/.config/nvim/init/plugins/scss.vim
 source $HOME/.config/nvim/init/plugins/java.vim
-
-if exists('g:nyaovim_version')
-  source $HOME/.config/nvim/init/plugins/nyaovim.vim
-endif
-
 source $HOME/.config/nvim/init/plugins/tmux.vim
 
 call plug#end()
@@ -62,40 +52,15 @@ call plug#end()
 " │          Plugin options           │
 " └───────────────────────────────────┘
 
+""" Deoplete
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#file#enable_buffer_path = 1
+let g:neosnippet#enable_snipmate_compatibility = 1
 
-""" Important note: Some plugins are configured in special ways so that they can
-""" behave with each other, so be extra careful when changing these. They are:
-"""  - YCM
-"""  - Ultisnips
-"""  - Supertab (it's included so that YCM and ultisnips work fine with tab)
-"""  - Eclim
-
-""" YCM
-" There is also YCM config in the following files: 
-"  - init/plugins/rust.vim
-let g:ycm_path_to_python_interpreter = '/usr/bin/python2'
-let g:ycm_global_ycm_extra_conf = '~/.config/nvim/.ycm_extra_conf.py'
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_add_preview_to_completeopt = 1
-let g:ycm_min_num_of_chars_for_completion = 1
-let g:ycm_key_list_select_completion = ['<C-n>']
-let g:ycm_key_list_previous_completion = ['<C-p>']
-
-""" UltiSnips
-source $HOME/.config/nvim/other/ultisnips_tab_hack.vim
-
-""" Supertab
-let g:SuperTabDefaultCompletionType = '<C-n>'
-
-""" NERDTree / NERDTreeTabs
+""" NERDTree
 let NERDTreeShowHidden = 1
 let NERDTreeChDirMode = 2
-let g:nerdtree_tabs_focus_on_files = 1 " Change focus to file after open file
-let g:nerdtree_tabs_autofind = 0  " Always keep NERDTree in sync with the current file
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif " Close vim if only NERDTree is open
-
 
 """ Airline
 let g:airline_theme = 'powerlineish'
@@ -128,9 +93,6 @@ autocmd! BufWritePost * Neomake
 " ┌───────────────────────────────────┐
 " │              omnifunc             │
 " └───────────────────────────────────┘
-
-""" YCM
-let &omnifunc="syntaxcomplete#Complete#" . &omnifunc
 
 """ Eclim
 let &omnifunc="eclim#" . &omnifunc

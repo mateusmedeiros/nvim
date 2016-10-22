@@ -10,7 +10,7 @@ let mapleader=","
 map <leader>r :NERDTreeFind<cr>
 
 """ <leader>s to toggle NERDTree
-nnoremap <Leader>s :NERDTreeTabsToggle<CR>
+nnoremap <Leader>s :NERDTreeToggle<CR>
 
 """ Clear line (like a dd but without the newline)
 nnoremap du g^d$
@@ -59,3 +59,10 @@ nmap ga <Plug>(EasyAlign)
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
+
+""" Popup menu etc
+imap <C-w> <Plug>(neosnippet_expand_or_jump)
+smap <C-w> <Plug>(neosnippet_expand_or_jump)
+xmap <C-w> <Plug>(neosnippet_expand_target)
+imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
+imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"

@@ -1,5 +1,8 @@
 function LoadPlugIfExists(plug, exists)
-    if exists(a:exists)
-        call plug#load(a:plug)
-    endif
+   for var in a:exists
+      if exists(var)
+         call plug#load(a:plug)
+         return
+      endif
+   endfor
 endfunction

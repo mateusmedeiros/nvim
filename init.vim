@@ -6,6 +6,7 @@ let $NEOVIM=1
 
 source $HOME/.config/nvim/init/functions.vim
 source $HOME/.config/nvim/init/plugins.vim
+source $HOME/.config/nvim/init/env.vim
 source $HOME/.config/nvim/init/mappings.vim
 source $HOME/.config/nvim/init/commands.vim
 source $HOME/.config/nvim/init/settings.vim

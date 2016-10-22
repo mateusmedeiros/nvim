@@ -1,0 +1,7 @@
+let &cdpath = "."
+let &cdpath = &cdpath . "," . $HOME . "/workspace"
+let &cdpath = &cdpath . "," . $HOME . "/workspace/saites"
+let &cdpath = &cdpath . "," . $HOME . "/workspace/eclipse"
+let &cdpath = &cdpath . "," . $HOME . "/workspace/ecostage"
+let &cdpath = &cdpath . "," . $HOME . "/workspace/rust"
+let &cdpath = &cdpath . "," . $HOME . "/.config"

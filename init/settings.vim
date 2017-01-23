@@ -61,3 +61,6 @@ set clipboard=unnamedplus
 
 """ Enable syntax highlighting of any kind
 syntax enable
+
+""" Enable title (to be shown on the task bar)
+set title

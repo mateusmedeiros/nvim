@@ -2,8 +2,5 @@ let on_html_related_filetype_types = { 'for': ['html', 'xhtml', 'slim', 'eruby',
 Plug 'mattn/emmet-vim', on_html_related_filetype_types
 Plug 'Valloric/MatchTagAlways', on_html_related_filetype_types
 
-" ┌───────────────────────────────────┐
-" │          Plugin options           │
-" └───────────────────────────────────┘
-
-imap <expr> <C-M> emmet#expandAbbrIntelligent("\<C-M>")
+" Change leader key for Emmet (combination becomes C-M,)
+let g:user_emmet_leader_key='<C-M>'

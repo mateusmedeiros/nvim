@@ -55,7 +55,25 @@ call plug#end()
 """ Deoplete
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#file#enable_buffer_path = 1
+let g:tern_request_timeout = 1
+let g:tern_show_signature_in_pum = '0'
+let g:deoplete#auto_completion_start_length = 0
+let g:min_pattern_length = 0
 let g:neosnippet#enable_snipmate_compatibility = 1
+let g:deoplete#tag#cache_limit_size = 5000000
+let g:deoplete#omni#functions = {}
+let g:deoplete#omni#functions._ = ['syntaxcomplete#Complete']
+let g:deoplete#omni#functions.java = ['eclim#java#complete#CodeComplete', 'syntaxcomplete#Complete']
+let g:deoplete#omni#functions.javascript = ['tern#Complete', 'jspc#omni', 'javascriptcomplete#CompleteJS', 'syntaxcomplete#Complete']
+let g:deoplete#sources = {}
+let g:deoplete#sources._ = ['buffer', 'member', 'tag', 'file', 'omni', 'dictionary', 'around']
+let g:deoplete#sources.javascript = ['ternjs', 'buffer', 'member', 'tag', 'file', 'omni', 'dictionary', 'around']
+let g:deoplete#member#prefix_patterns = get(g:, 'deoplete#member#prefix_patterns', {})
+let g:deoplete#member#prefix_patterns.javascript = ['\.']
+
+""" tern_for_vim
+let g:tern#command = ["tern"]
+let g:tern#arguments = ["--persistent"]
 
 """ NERDTree
 let NERDTreeShowHidden = 1
@@ -88,11 +106,3 @@ let g:neomake_scss_enabled_makers = executable("scss-lint") ? ['scsslint'] : []
 let g:neomake_yaml_enabled_makers = filter(['yamllint'], is_executable)
 let g:neomake_list_height = 5
 autocmd! BufWritePost * Neomake
-
-
-" ┌───────────────────────────────────┐
-" │              omnifunc             │
-" └───────────────────────────────────┘
-
-""" Eclim
-let &omnifunc="eclim#" . &omnifunc

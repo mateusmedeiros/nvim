@@ -64,3 +64,6 @@ syntax enable
 
 """ Enable title (to be shown on the task bar)
 set title
+
+""" Completions with PUM only
+set completeopt=menuone

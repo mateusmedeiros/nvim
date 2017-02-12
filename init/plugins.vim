@@ -62,21 +62,12 @@ let g:min_pattern_length = 0
 let g:deoplete#tag#cache_limit_size = 5000000
 let g:deoplete#omni#functions = {}
 let g:deoplete#omni#functions._ = ['syntaxcomplete#Complete']
-let g:deoplete#omni#functions.java = ['eclim#java#complete#CodeComplete', 'syntaxcomplete#Complete']
-let g:deoplete#omni#functions.javascript = ['tern#Complete', 'jspc#omni', 'javascriptcomplete#CompleteJS', 'syntaxcomplete#Complete']
 let g:deoplete#sources = {}
 let g:deoplete#sources._ = ['buffer', 'member', 'tag', 'file', 'omni', 'dictionary', 'around', 'neosnippet']
-let g:deoplete#sources.javascript = ['ternjs'] + g:deoplete#sources._
 let g:deoplete#member#prefix_patterns = get(g:, 'deoplete#member#prefix_patterns', {})
-let g:deoplete#member#prefix_patterns.javascript = ['\.']
 let g:neosnippet#enable_completed_snippet = 1
 let g:neosnippet#snippets_directory = [ $HOME . '/.config/nvim/plugged/vim-snippets/snippets', $HOME . '/.config/nvim/snippets' ]
 let g:neosnippet#enable_snipmate_compatibility = 1
-
-
-""" tern_for_vim
-let g:tern#command = ["tern"]
-let g:tern#arguments = ["--persistent"]
 
 """ NERDTree
 let NERDTreeShowHidden = 1

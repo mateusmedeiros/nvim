@@ -3,3 +3,5 @@ Plug g:plug_home.'/eclim', { 'for': 'java' } " Eclim has a special install proce
 let g:EclimCompletionMethod = 'omnifunc'
 let g:EclimJavascriptValidate = 0
 let g:EclimJavascriptLintEnabled = 0
+
+let g:deoplete#omni#functions.java = ['eclim#java#complete#CodeComplete', 'syntaxcomplete#Complete']

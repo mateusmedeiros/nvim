@@ -20,7 +20,8 @@ git clone https://github.com/mateusmedeiros/nvim.git
 ```
 
 ## Do I need to do anything else?
-Glad I asked. I'm always commiting changes to this repository, so stuff isn't
+Glad I asked (because I'm the one writing this, get it? hahaha... haha...
+:pensive:). I'm always commiting changes to this repository, so stuff isn't
 always up-to-date here on the README, but I try to do my best!
 
 Don't worry, though. Since I made the move to neovim and deoplete, stuff got

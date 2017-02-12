@@ -61,6 +61,13 @@ configuration.
 cargo install racer
 ```
 
+You also need the rust source files. If you used rustup to install rust in your
+computer, you can do that with the following command:
+
+```bash
+rustup component add rust-src
+```
+
 ### Install eslint (and friends)
 
 This is only needed if you intend to use neomake lint within javascript files.

@@ -100,9 +100,9 @@ nvim +PlugInstall
 
 # Contributing
 
-These are very personal, so I'm guessing you'll probably take a look at it as a
-reference to copy some parts or see how I organized stuff. Maybe even fork and
-modify, but probably not contribute back to the repo itself because it's all
+These files are very personal, so I'm guessing you'll probably take a look at it
+as a reference to copy some parts or see how I organized stuff. Maybe even fork
+and modify, but probably not contribute back to the repo itself because it's all
 very subjective and stuff.
 
 That's ok! But if you find a typo, or some other error, feel free to open an

@@ -33,6 +33,12 @@ Plug 'w0ng/vim-hybrid'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 
+" Defaults in case they're used by technology-specific configuration
+let g:deoplete#omni#functions = {}
+let g:deoplete#omni#functions._ = ['syntaxcomplete#Complete']
+let g:deoplete#sources = {}
+let g:deoplete#sources._ = ['buffer', 'member', 'tag', 'file', 'omni', 'dictionary', 'around', 'neosnippet']
+let g:deoplete#member#prefix_patterns = {}
 source $HOME/.config/nvim/init/plugins/slim.vim
 source $HOME/.config/nvim/init/plugins/html.vim
 source $HOME/.config/nvim/init/plugins/rails.vim
@@ -60,10 +66,6 @@ let g:tern_show_signature_in_pum = '0'
 let g:deoplete#auto_completion_start_length = 0
 let g:min_pattern_length = 0
 let g:deoplete#tag#cache_limit_size = 5000000
-let g:deoplete#omni#functions = {}
-let g:deoplete#omni#functions._ = ['syntaxcomplete#Complete']
-let g:deoplete#sources = {}
-let g:deoplete#sources._ = ['buffer', 'member', 'tag', 'file', 'omni', 'dictionary', 'around', 'neosnippet']
 let g:deoplete#member#prefix_patterns = get(g:, 'deoplete#member#prefix_patterns', {})
 let g:neosnippet#enable_completed_snippet = 1
 let g:neosnippet#snippets_directory = [ $HOME . '/.config/nvim/plugged/vim-snippets/snippets', $HOME . '/.config/nvim/snippets' ]

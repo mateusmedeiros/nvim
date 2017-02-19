@@ -94,6 +94,10 @@ let g:ctrlp_custom_ignore = { 'dir': 'node_modules' }
 """ vim-tmux-navigator
 let g:tmux_navigator_no_mappings = 1
 
+""" vim-localvimrc
+let g:localvimrc_persistent = 2
+let g:localvimrc_persistence_file = $HOME . '/.config/nvim/localvimrc_persistence'
+
 """ Neomake
 let is_executable = 'executable(v:val)'
 let g:neomake_css_enabled_makers = filter(['csslint'], is_executable)

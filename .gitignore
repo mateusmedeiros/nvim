@@ -10,3 +10,4 @@ swap/*
 backup/*
 !backup/.placeholder
 .netrwhist
+localvimrc_persistence

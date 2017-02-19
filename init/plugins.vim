@@ -32,23 +32,25 @@ Plug 'tpope/vim-endwise'
 Plug 'w0ng/vim-hybrid'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
+Plug 'embear/vim-localvimrc'
 
 " Defaults in case they're used by technology-specific configuration
 let g:deoplete#omni#functions = {}
 let g:deoplete#omni#functions._ = ['syntaxcomplete#Complete']
 let g:deoplete#sources = {}
-let g:deoplete#sources._ = ['buffer', 'member', 'tag', 'file', 'omni', 'dictionary', 'around', 'neosnippet']
+let g:deoplete#sources._ = ['buffer', 'member', 'omni', 'neosnippet']
 let g:deoplete#member#prefix_patterns = {}
-source $HOME/.config/nvim/init/plugins/slim.vim
-source $HOME/.config/nvim/init/plugins/html.vim
-source $HOME/.config/nvim/init/plugins/rails.vim
 source $HOME/.config/nvim/init/plugins/clojure.vim
-source $HOME/.config/nvim/init/plugins/javascript.vim
-source $HOME/.config/nvim/init/plugins/rust.vim
 source $HOME/.config/nvim/init/plugins/coffee.vim
-source $HOME/.config/nvim/init/plugins/stylesheets.vim
-source $HOME/.config/nvim/init/plugins/scss.vim
+source $HOME/.config/nvim/init/plugins/elixir.vim
+source $HOME/.config/nvim/init/plugins/html.vim
 source $HOME/.config/nvim/init/plugins/java.vim
+source $HOME/.config/nvim/init/plugins/javascript.vim
+source $HOME/.config/nvim/init/plugins/rails.vim
+source $HOME/.config/nvim/init/plugins/rust.vim
+source $HOME/.config/nvim/init/plugins/scss.vim
+source $HOME/.config/nvim/init/plugins/slim.vim
+source $HOME/.config/nvim/init/plugins/stylesheets.vim
 source $HOME/.config/nvim/init/plugins/tmux.vim
 
 call plug#end()

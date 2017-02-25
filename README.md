@@ -92,6 +92,39 @@ gem install rubocop
 Make sure neovim has access to that ruby installation.
 See [Install ruby bindings](#install-ruby-bindings)
 
+### Install Dogma and Credo
+
+If you intend to use elixir linting, a few things must be set up.
+
+Dogma:
+
+```bash
+git clone https://github.com/lpil/dogma
+cd dogma
+mix deps.get
+mix archive.build
+mix archive.install
+```
+
+Bunt:
+
+```bash
+git clone https://github.com/rrrene/bunt
+cd bunt
+mix archive.build
+mix archive.install
+```
+
+Credo:
+
+```bash
+git clone https://github.com/rrrene/credo
+cd credo
+mix deps.get
+mix archive.build
+mix archive.install
+```
+
 ### And last, but not least: PlugInstall
 
 ```bash

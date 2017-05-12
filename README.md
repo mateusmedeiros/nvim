@@ -49,7 +49,7 @@ The important thing is to install the `neovim` package with the python version (
 3) you have in your system (or both).
 
 The names of the binaries may vary. If you need to set unconventional paths for
-the python installations in which you installed the eggs, take a look at [the
+the python installations in which you installed the packages, take a look at [the
 neovim provider docs](https://neovim.io/doc/user/provider.html#provider-python).
 
 ### Install racer

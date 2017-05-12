@@ -45,7 +45,7 @@ pip2 install neovim
 pip3 install neovim
 ```
 
-The important thing is to install the `neovim` egg with the python version (2 or
+The important thing is to install the `neovim` package with the python version (2 or
 3) you have in your system (or both).
 
 The names of the binaries may vary. If you need to set unconventional paths for

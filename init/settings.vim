@@ -65,5 +65,8 @@ syntax enable
 """ Enable title (to be shown on the task bar)
 set title
 
+""" Enable mouse support
+set mouse=a
+
 """ Completions with PUM only
 set completeopt=menuone
